@@ -5,7 +5,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/N30A/personal-website/handlers"
+	"github.com/N30A/personal-website/routes"
 )
 
 const (
@@ -15,8 +15,8 @@ const (
 
 func main() {
 	mux := http.NewServeMux()
-	handlers.MapStaticFiles(mux)
-	handlers.MapRoutes(mux)
+	routes.MapStaticFiles(mux)
+	routes.MapRoutes(mux)
 
 	address := net.JoinHostPort(Host, Port)
 	log.Printf("listening on %s\n", address)
