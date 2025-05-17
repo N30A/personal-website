@@ -9,8 +9,12 @@
     </head>
     <body>
         <header>
-            <h1>{{.Title}}</h1>
+            <nav>
+                <a href="/">Hem</a>
+                <a href="/about">Om mig</a>
+            </nav>
         </header>
         <main>{{template "content" .}}</main>
+        <footer>&copy; Neo Åhlander {{.Year}}</footer>
     </body>
 </html>
