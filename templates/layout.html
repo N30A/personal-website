@@ -3,24 +3,38 @@
     <head>
         <meta charset="UTF-8" />
         <title>{{.Title}}</title>
-        <link rel="stylesheet" href="/static/css/style.css" />
-        <link rel="stylesheet" href="/static/css/layout.css" />
-        <link
-            rel="stylesheet"
-            href="/static/fontawesome/css/fontawesome.min.css"
-        />
-        <link rel="stylesheet" href="/static/fontawesome/css/brands.min.css" />
-        <link rel="stylesheet" href="/static/fontawesome/css/solid.min.css" />
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/layout.css">
+        <link rel="stylesheet" href="/static/fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="/static/fontawesome/css/brands.min.css">
+        <link rel="stylesheet" href="/static/fontawesome/css/solid.min.css">
         <script src="/static/js/htmx.min.js"></script>
     </head>
     <body>
         <header>
             <nav>
-                <a href="/">Hem</a>
-                <a href="/about">Om mig</a>
+                <ul class="nav-list">
+                    <li><a href="/" class="{{if eq .CurrentPage `index`}}current-page{{end}}">Hem</a></li>
+                    <li><a href="/projects" class="{{if eq .CurrentPage `projects`}}current-page{{end}}">Projekt</a></li>
+                    <li><a href="/about" class="{{if eq .CurrentPage `about`}}current-page{{end}}">Om mig</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="https://github.com/N30A" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/neo-ahlander/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                </ul>
             </nav>
         </header>
         <main>{{template "content" .}}</main>
-        <footer>&copy; Neo Åhlander {{.Year}}</footer>
+        <footer>
+            <ul class="footer-list">
+                <li><span>&copy; {{.Year}} Neo Åhlander</span></li>
+                <li><span>|</span></li>
+                <li><a href="/">Hem</a></li>
+                <li><a href="/projects">Projekt</a></li>
+                <li><a href="/about">Om mig</a></li>
+                <li><span>|</span></li>
+                <li><a href="https://github.com/N30A" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/neo-ahlander/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+            </ul>
+        </footer>
     </body>
 </html>
