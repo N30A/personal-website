@@ -5,6 +5,7 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/N30A/personal-website/db"
 	"github.com/N30A/personal-website/routes"
 )
 
@@ -14,6 +15,11 @@ const (
 )
 
 func main() {
+	if err := db.Connect(); err != nil {
+		log.Fatalln("database connection failed:", err)
+	}
+	defer db.DB.Close()
+
 	mux := http.NewServeMux()
 	routes.MapStaticFiles(mux)
 	routes.MapRoutes(mux)
