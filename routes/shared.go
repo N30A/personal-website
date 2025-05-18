@@ -9,16 +9,18 @@ import (
 )
 
 type pageData struct {
-	Title   string
-	Year    int
-	Content any
+	Title       string
+	Year        int
+	CurrentPage string
+	Content     any
 }
 
-func newPageData(title string, content any) pageData {
+func newPageData(title string, pageName string, content any) pageData {
 	return pageData{
-		Title:   title,
-		Year:    time.Now().Year(),
-		Content: content,
+		Title:       title,
+		Year:        time.Now().Year(),
+		CurrentPage: pageName,
+		Content:     content,
 	}
 }
 

@@ -10,5 +10,6 @@ func MapStaticFiles(mux *http.ServeMux) {
 
 func MapRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/", indexHandler)
+	mux.HandleFunc("/projects", projectsHandler)
 	mux.HandleFunc("/about", aboutHandler)
 }

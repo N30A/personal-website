@@ -10,5 +10,5 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	indexData := indexData{
 		Message: "Hello World",
 	}
-	renderTemplate(w, "index", newPageData("Hem", indexData))
+	renderTemplate(w, "index", newPageData("Hem", "index", indexData))
 }
