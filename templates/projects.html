@@ -1,0 +1,15 @@
+{{define "content"}}
+<div class="projects-container">
+    <div class="projects-list">
+        {{range .Content.Projects}}
+          <div class="project-item">
+              <div class="project-header">
+                  <h2><a href="{{.ProjectUrl}}" target="_blank">{{.Title}}</a></h2>
+                  <p>{{.Body}}</p>
+              </div>
+            <img src="{{.ImageUrl}}" alt="{{.Title}}">
+          </div>
+        {{end}}
+    </div>
+</div>
+{{end}}
