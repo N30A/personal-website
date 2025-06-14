@@ -1,3 +1,78 @@
+/* INDEX */
+.index-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 5rem;
+}
+
+.branch-wrapper {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+.branch {
+    width: 500px;
+    height: 500px;
+    transform: rotate(10deg);
+    object-fit: contain;
+}
+
+html.dark .branch {
+    opacity: 0.8;
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.profile {
+    display: flex;
+    gap: 2.5rem;
+    max-width: 80%;
+}
+
+.profile-image {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 60%;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile-hello {
+    font-size: 1.5rem;
+}
+
+.profile-name {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.profile-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 1.5rem 0;
+}
+
+/* PROJECTS */
 .projects-container {
     display: flex;
     justify-content: center;

@@ -8,10 +8,14 @@
         <link rel="stylesheet" href="/static/fontawesome/css/fontawesome.min.css">
         <link rel="stylesheet" href="/static/fontawesome/css/brands.min.css">
         <link rel="stylesheet" href="/static/fontawesome/css/solid.min.css">
+        <script src="/static/js/script.js"></script>
         <script src="/static/js/htmx.min.js"></script>
     </head>
     <body>
         <header>
+            <div>
+                <a class="username" href="/">N30A</a>
+            </div>
             <nav>
                 <ul class="nav-list">
                     <li><a href="/" class="{{if eq .CurrentPage `index`}}current-page{{end}}">Hem</a></li>
@@ -20,21 +24,13 @@
                     <li><span>|</span></li>
                     <li><a href="https://github.com/N30A" target="_blank"><i class="fa-brands fa-github"></i></a></li>
                     <li><a href="https://www.linkedin.com/in/neo-ahlander/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><button id="theme-toggle"></button></li>
                 </ul>
             </nav>
         </header>
         <main>{{template "content" .}}</main>
         <footer>
-            <ul class="footer-list">
-                <li><span>&copy; {{.Year}} Neo Åhlander</span></li>
-                <li><span>|</span></li>
-                <li><a href="/">Hem</a></li>
-                <li><a href="/projects">Projekt</a></li>
-                <li><a href="/about">Om mig</a></li>
-                <li><span>|</span></li>
-                <li><a href="https://github.com/N30A" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/neo-ahlander/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-            </ul>
+            <p>&copy; {{.Year}} Neo Åhlander</p>
         </footer>
     </body>
 </html>

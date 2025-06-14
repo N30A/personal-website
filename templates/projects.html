@@ -1,5 +1,6 @@
 {{define "content"}}
 <div class="projects-container">
+    {{if gt (len .Content.Projects) 0}}
     <div class="projects-list">
         {{range .Content.Projects}}
           <div class="project-item">
@@ -7,9 +8,12 @@
                   <h2><a href="{{.ProjectUrl}}" target="_blank">{{.Title}}</a></h2>
                   <p>{{.Body}}</p>
               </div>
-            <img src="{{.ImageUrl}}" alt="{{.Title}}">
+              <img src="https://placehold.co/{{.ImageName}}" alt="{{.Title}}">
           </div>
         {{end}}
     </div>
+    {{else}}
+    <p>Inga projekt att visa just nu.</p>
+    {{end}}
 </div>
 {{end}}

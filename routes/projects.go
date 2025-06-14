@@ -1,59 +1,37 @@
 package routes
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+
+	"github.com/N30A/personal-website/db"
+)
 
 type projectsData struct {
 	Projects []project
 }
 
+type technology struct {
+	name string `db:"name"`
+}
+
 type project struct {
-	Title      string
-	Body       string
-	ImageUrl   string
-	ProjectUrl string
+	Title        string `db:"title"`
+	Body         string `db:"body"`
+	ImageName    string `db:"image_name"`
+	ProjectUrl   string `db:"project_url"`
+	Technologies []technology
 }
 
 func projectsHandler(w http.ResponseWriter, r *http.Request) {
-	projectsData := projectsData{
-		Projects: []project{
-			{
-				Title:      "Webbapp för tidrapportering",
-				Body:       "Ett verktyg för att logga arbetstid, byggt i Go med PostgreSQL och HTMX.",
-				ImageUrl:   "https://placehold.co/300x250",
-				ProjectUrl: "https://github.com/n30a",
-			},
-			{
-				Title:      "Portfolio-webbplats",
-				Body:       "En responsiv webbplats för att visa upp mina projekt. Använder Go templates och ren CSS.",
-				ImageUrl:   "https://placehold.co/300x250",
-				ProjectUrl: "https://github.com/n30a",
-			},
-			{
-				Title:      "Chattapplikation i Go",
-				Body:       "En realtidschatt byggd med WebSockets och Go – frontend i HTMX.",
-				ImageUrl:   "https://placehold.co/300x250",
-				ProjectUrl: "https://github.com/n30a",
-			},
-			{
-				Title:      "CLI-verktyg för filhantering",
-				Body:       "Ett kommandoradsverktyg i Go för att organisera filer och mappar automatiskt.",
-				ImageUrl:   "https://placehold.co/300x250",
-				ProjectUrl: "https://github.com/n30a",
-			},
-			{
-				Title:      "Bloggmotor i Go",
-				Body:       "En enkel bloggmotor med markdown-stöd, SQLite och inbyggd adminpanel.",
-				ImageUrl:   "https://placehold.co/300x250",
-				ProjectUrl: "https://github.com/n30a",
-			},
-			{
-				Title:      "API för väderdata",
-				Body:       "REST-API i Go som hämtar och cachar väderdata från externa tjänster.",
-				ImageUrl:   "https://placehold.co/300x250",
-				ProjectUrl: "https://github.com/n30a",
-			},
-		},
+	query := `
+	select title, body, image_name, project_url from projects;
+	`
+
+	projects := []project{}
+	if err := db.DB.Select(&projects, query); err != nil {
+		log.Println(err)
 	}
 
-	renderTemplate(w, "projects", newPageData("Projekt", "projects", projectsData))
+	renderTemplate(w, "projects", newPageData("Projekt", "projects", projectsData{projects}))
 }
