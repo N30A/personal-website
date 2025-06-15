@@ -68,8 +68,9 @@ html.dark .branch {
 .profile-divider {
     border: none;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--color-text);
     margin: 1.5rem 0;
+    opacity: 0.4;
 }
 
 /* PROJECTS */

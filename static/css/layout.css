@@ -15,13 +15,9 @@
 }
 
 :root {
-    --accent: #66b39a;
-    /* LIGHT THEME */
-    --primary-light: #F5F5F5;
-    --secondary-light: #000000;
-    /* DARK THEME */
-    --primary-dark: #373535;
-    --secondary-dark: #F5F5F5;
+    --color-bg: #F5F5F5;
+    --color-text: #000000;
+    --color-accent: #66b39a;
 }
 
 * {
@@ -30,14 +26,14 @@
 }
 
 html {
-    background-color: var(--primary-light);
-    color: var(--secondary-light);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     transition: background-color 0.3s;
 }
 
 html.dark {
-    background-color: var(--primary-dark);
-    color: var(--secondary-dark);
+    --color-bg: #373535;
+    --color-text: #F5F5F5;
 }
 
 body {
@@ -61,7 +57,7 @@ header .username {
 }
 
 header .username:hover {
-    color: var(--accent);
+    color: var(--color-accent);
 }
 
 nav {
@@ -72,6 +68,7 @@ nav {
     all: unset;
     cursor: pointer;
     transition: all 0.1s ease;
+    user-select: none;
 }
 
 #theme-toggle:hover {
@@ -97,11 +94,11 @@ nav {
 }
 
 .nav-list a:hover {
-    color: var(--accent);
+    color: var(--color-accent);
 }
 
 .current-page {
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid var(--color-accent);
 }
 
 main {

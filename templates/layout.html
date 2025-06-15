@@ -8,8 +8,17 @@
         <link rel="stylesheet" href="/static/fontawesome/css/fontawesome.min.css">
         <link rel="stylesheet" href="/static/fontawesome/css/brands.min.css">
         <link rel="stylesheet" href="/static/fontawesome/css/solid.min.css">
-        <script src="/static/js/script.js"></script>
-        <script src="/static/js/htmx.min.js"></script>
+        <script>
+          (function () {
+            try {
+              if (localStorage.getItem("theme") === "dark") {
+                document.documentElement.classList.add("dark");
+              }
+            } catch (e) { }
+          })();
+        </script>
+        <script defer src="/static/js/script.js"></script>
+        <script defer src="/static/js/htmx.min.js"></script>
     </head>
     <body>
         <header>
